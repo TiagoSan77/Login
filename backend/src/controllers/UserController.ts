@@ -20,12 +20,9 @@ public async login(req: Request, res: Response, next: any):Promise<void> {
             return;
         }
         const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "1h" });
-<<<<<<< HEAD
         res.setHeader('Access-Control-Expose-Headers', 'Authorization');
         res.setHeader('Authorization', token);
-=======
         res.setHeader("Authorization",`${token}`);
->>>>>>> cb90f8fa1ffa51fa3a3c36872a0f067670f6d9ce
         // res.json({email,password});
         res.status(200).json({ message: "Usuario logado com sucesso" });
     } catch (error) {
