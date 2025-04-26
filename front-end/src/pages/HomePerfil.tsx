@@ -1,22 +1,29 @@
-import NavBar from "../components/Header";
-import { ButtonContainer, HeroSection, HeroSubtitle, HeroTitle, MainContainer, PrimaryButton, SecondaryButton } from "./Home";
+import styled from "styled-components";
+import Cards from "../components/CardsCliente";
+import NavBarPerfil from "../components/HeaderPerfil";
 
 export default function HomePerfil() {
     return (
         <>
-            <NavBar />
-            <MainContainer>
-                <HeroSection>
-                    <HeroTitle>Bem-vindo à StreamPlus</HeroTitle>
-                    <HeroSubtitle>O melhor conteúdo de streaming em um só lugar</HeroSubtitle>
-                    <ButtonContainer>
-                        <PrimaryButton >
-                            Ver Planos
-                        </PrimaryButton>
-                        <SecondaryButton>Saiba Mais</SecondaryButton>
-                    </ButtonContainer>
-                </HeroSection>
-            </MainContainer>
+            <NavBarPerfil />
+            <Container>
+                <Cards />
+                <Cards />
+            </Container>
         </>
     )
 }
+
+const Container = styled.div`
+    display: flex;
+    flex-wrap: wrap; /* permite quebrar linha se faltar espaço */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* espaço entre os cards */
+    padding: 1rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column; /* empilha um embaixo do outro no mobile */
+        gap: 0.5rem;
+    }
+  `

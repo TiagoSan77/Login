@@ -9,10 +9,10 @@ export default function NavBar() {
         <li>Contato</li>
         <li>Comprar</li>
         <li>
-          <a href="/login" style={{ color:'white', textDecoration: 'none' }}>Login</a>
+          <a href="/login" style={{ color: 'white', textDecoration: 'none' }}>Login</a>
         </li>
         <li>
-          <a href='/register' style={{ color:'white', textDecoration: 'none' }}>
+          <a href='/register' style={{ color: 'white', textDecoration: 'none' }}>
             Cadastre-se
           </a>
         </li>
@@ -29,6 +29,7 @@ const NavbarContainer = styled.nav`
   align-items: center;
   color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
 `;
 
 const Logo = styled.div`
@@ -49,5 +50,13 @@ const NavLinks = styled.ul`
     &:hover {
       color: #00c6ff;
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 `;

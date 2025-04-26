@@ -10,12 +10,11 @@ export default function NavBarPerfil() {
         <li>Contato</li>
         <li>Comprar</li>
         <li>
-          <a href="/#" style={{ color:'white', textDecoration: 'none' }}>User</a>
+          <a href="/#" style={{ color: 'white', textDecoration: 'none' }}>User</a>
         </li>
         <li>
-          <a href="/home" style={{ color:'white', textDecoration: 'none' }}>Sair</a>
+          <a href="/home" style={{ color: 'white', textDecoration: 'none' }}>Sair</a>
         </li>
-        
       </NavLinks>
     </NavbarContainer>
   );
@@ -29,6 +28,7 @@ const NavbarContainer = styled.nav`
   align-items: center;
   color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap; /* Permite quebra em telas menores */
 `;
 
 const Logo = styled.div`
@@ -49,5 +49,13 @@ const NavLinks = styled.ul`
     &:hover {
       color: #00c6ff;
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 `;

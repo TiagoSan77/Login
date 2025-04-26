@@ -1,12 +1,8 @@
 // src/pages/Planos.tsx
 import styled from 'styled-components';
-import NavBar from '../components/Header';
 
 export default function Cards() {
   return (
-    <Container>
-      <NavBar />
-      <Content>
         <Card>
           <Title>Unitv</Title>
           <PlanDetails>
@@ -15,27 +11,10 @@ export default function Cards() {
           </PlanDetails>
           <SubscribeButton>Assinar Agora</SubscribeButton>
         </Card>
-      </Content>
-    </Container>
   );
 }
 
 // Styled-components
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
-  min-height: 100vh;
-`;
-
-const Content = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding: 2rem;
-`;
 
 const Card = styled.div`
   background: #1f2833;
