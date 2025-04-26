@@ -5,7 +5,6 @@ export default function NavBar() {
     <NavbarContainer>
       <Logo>StreamPlus</Logo>
       <NavLinks>
-        <li>Início</li>
         <li>Planos</li>
         <li>Contato</li>
         <li>Comprar</li>

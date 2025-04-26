@@ -1,24 +1,67 @@
 import styled from "styled-components";
 import { InputBonito } from "../components/FormLogin";
+import { useState } from "react";
+import axios from "axios";
 
 export default function FormCadastro() {
-    return (
-        <>
-            <FormContainer>
-                <Formulario>
-                    <Title>Cadastro</Title>
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-                    <InputBonito type="text" placeholder="Digite seu Nome" required />
-                    <InputBonito type="email" placeholder="Digite seu Email" required />
-                    <InputBonito type="password" placeholder="Digite sua Senha" required />
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await Cadastrar();
+  };
 
-                    <BotaoBonito type="submit">Cadastrar</BotaoBonito>
+  async function Cadastrar() {
+    try {
+      await axios.post('http://localhost:3001/signup', {
+        name, 
+        email, 
+        password
+      });
+      alert("Cadastro realizado com sucesso!");
+      window.location.href = '/login';
+    }
+    catch (error) {
+      console.error("Erro ao cadastrar:", error);
+      alert("Erro ao cadastrar. Tente novamente.");
+    }
+  }
 
-                    <BotaoVoltar href="/home">Voltar</BotaoVoltar>
-                </Formulario>
-            </FormContainer>
-        </>
-    )
+  return (
+    <FormContainer>
+      <Formulario onSubmit={handleSubmit}>
+        <Title>Cadastro</Title>
+
+        <InputBonito 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+          type="text" 
+          placeholder="Digite seu Nome" 
+          required 
+        />
+        <InputBonito 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+          type="email" 
+          placeholder="Digite seu Email" 
+          required 
+        />
+        <InputBonito 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+          type="password" 
+          placeholder="Digite sua Senha" 
+          required 
+        />
+
+        <BotaoBonito type="submit">Cadastrar</BotaoBonito>
+
+        <BotaoVoltar href="/home">Voltar</BotaoVoltar>
+      </Formulario>
+    </FormContainer>
+  )
 }
 
 const FormContainer = styled.div`

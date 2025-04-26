@@ -38,7 +38,7 @@ export default function FormLogin() {
         localStorage.setItem('token', token);
         
         alert("Login realizado com sucesso!");
-        window.location.href = '/home';
+        window.location.href = '/perfil';
       }
   
     } catch (error) {

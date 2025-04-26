@@ -23,7 +23,7 @@ export default function Home() {
 }
 
 // Styled components (no mesmo arquivo)
-const MainContainer = styled.main`
+export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,29 +31,29 @@ const MainContainer = styled.main`
   padding: 2rem;
 `;
 
-const HeroSection = styled.section`
+export const HeroSection = styled.section`
   text-align: center;
 `;
 
-const HeroTitle = styled.h1`
+export const HeroTitle = styled.h1`
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #ffffff;
 `;
 
-const HeroSubtitle = styled.p`
+export const HeroSubtitle = styled.p`
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: #cfd8dc;
 `;
 
-const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
 `;
 
-const PrimaryButton = styled.button`
+export const PrimaryButton = styled.button`
   background: #00c6ff;
   color: #fff;
   border: none;
@@ -68,7 +68,7 @@ const PrimaryButton = styled.button`
   }
 `;
 
-const SecondaryButton = styled.button`
+export const SecondaryButton = styled.button`
   background: transparent;
   color: #00c6ff;
   border: 2px solid #00c6ff;
