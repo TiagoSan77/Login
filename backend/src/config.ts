@@ -10,6 +10,6 @@ export const PORT = process.env.PORT;
 export const SECRET = process.env.JWT_SECRET as string
 
 
-console.log('DATABASE_URI:', DATABASE_URI); // Isso está funcionando
-console.log('PORT', PORT); // Isso está funcionando
-console.log('SECRET', SECRET); // Isso está funcionando
+// console.log('DATABASE_URI:', DATABASE_URI); // Isso está funcionando
+// console.log('PORT', PORT); // Isso está funcionando
+// console.log('SECRET', SECRET); // Isso está funcionando

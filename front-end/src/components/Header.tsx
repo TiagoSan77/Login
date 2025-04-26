@@ -1,51 +1,54 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export default function Header() {
-    return (
-        <HeaderStyle>
-            <h1>My App</h1>
-            <NavContainer>
-                <NavButton href="/">Home</NavButton>
-                <NavButton href="/about">About</NavButton>
-                <NavButton href="/contact">Contact</NavButton>
-            </NavContainer>
-        </HeaderStyle>
-    );
-}
+export default function NavBar() {
+  return (
+    <NavbarContainer>
+      <Logo>StreamPlus</Logo>
+      <NavLinks>
+        <li>Início</li>
+        <li>Planos</li>
+        <li>Contato</li>
+        <li>Comprar</li>
+        <li>
+          <a href="/login" style={{ color:'white', textDecoration: 'none' }}>Login</a>
+        </li>
+        <li>
+          <a href='/register' style={{ color:'white', textDecoration: 'none' }}>
+            Cadastre-se
+          </a>
+        </li>
+      </NavLinks>
+    </NavbarContainer>
+  );
+};
 
-const HeaderStyle = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #6200ea;
-    color: white;
-    padding: 12px 24px;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+const NavbarContainer = styled.nav`
+  background: linear-gradient(90deg, #141e30, #243b55);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 `;
 
-const NavContainer = styled.nav`
-    display: flex;
-    gap: 1rem;
-    margin-right: 2rem;
+const Logo = styled.div`
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
 `;
 
-const NavButton = styled.a`
-    padding: 8px 16px;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+const NavLinks = styled.ul`
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+
+  li {
     cursor: pointer;
-    
+    transition: color 0.3s ease;
+
     &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-1px);
+      color: #00c6ff;
     }
-    
-    &:active {
-        transform: translateY(0);
-    }
+  }
 `;

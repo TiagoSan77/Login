@@ -1,9 +1,9 @@
 import FormCadastro from "../components/FormCadastro";
 
-export default function Register(){
-    return(
+export default function Register() {
+    return (
         <>
-        <FormCadastro/>
+            <FormCadastro />
         </>
     )
 }

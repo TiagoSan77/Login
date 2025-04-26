@@ -6,30 +6,31 @@ import { SECRET } from "../config";
 
 class UserController {
 
-public async login(req: Request, res: Response, next: any):Promise<void> {
-    try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
-        if (!user) {
-            res.status(401).json({ message: "Invalid email or password" });
-            return;
+    public async login(req: Request, res: Response, next: any):Promise<void> {
+        try {
+            const { email, password } = req.body;
+            const user = await User.findOne({ email });
+            if (!user) {
+                res.status(401).json({ message: "Invalid email or password" });
+                return;
+            }
+            const isMatch = await bcrypt.compare(password, user.password);
+            if (!isMatch) {
+                res.status(401).json({ message: "Invalid email or password" });
+                return;
+            }
+            const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "1h" });
+            res.setHeader("Authorization", `Bearer ${token}`);
+            res.status(200).json({ 
+                message: "Login successful",
+                token: token,
+                userId: user._id 
+            });
+        } catch (error) {
+            res.status(500).json({ message: 'Erro ao fazer login', error });
         }
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            res.status(401).json({ message: "Invalid email or password" });
-            return;
-        }
-        const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "1h" });
-        res.setHeader('Access-Control-Expose-Headers', 'Authorization');
-        res.setHeader('Authorization', token);
-        res.setHeader("Authorization",`${token}`);
-        // res.json({email,password});
-        res.status(200).json({ message: "Usuario logado com sucesso" });
-    } catch (error) {
-        res.status(500).json({ message: 'Erro ao fazer login', error });
     }
-}
-
+    
 
     public async create(req: Request, res: Response):Promise<void> {
         try {
