@@ -4,7 +4,32 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { SECRET } from "../config";
 
+
+interface IUserResponse {
+    name: string;
+    email: string;
+    _id: string;
+}
+
 class UserController {
+    public async logout(req: Request, res: Response): Promise<void> {
+        try {
+            await new Promise<void>((resolve, reject) => {
+                req.session.destroy((err) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve();
+                    }
+                });
+            });
+
+            res.clearCookie('connect.sid');
+            res.status(200).json({ message: 'Logout realizado com sucesso' });
+        } catch (error) {
+            res.status(500).json({ message: 'Erro ao fazer logout', error });
+        }
+    }
 
     public async login(req: Request, res: Response, next: any):Promise<void> {
         try {
@@ -44,12 +69,15 @@ class UserController {
            res.send('erro ao cadastrar usuario');
         }
     }
+
+    
     public async read(req: Request, res: Response):Promise<void> {
         try {
-            const users = await User.find();
-            res.json(users); 
+            const id = req.params.id;
+            const user = await User.findById<IUserResponse>(id).select('name email _id');
+            res.json(user); 
         } catch (error) {
-            res.status(500).json({ message: 'Erro ao obter usuários', error });
+            res.status(500).json({ message: 'Erro ao obter usuário', error });
         }
     }
 

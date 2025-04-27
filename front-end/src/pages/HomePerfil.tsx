@@ -1,8 +1,37 @@
 import styled from "styled-components";
 import Cards from "../components/CardsCliente";
 import NavBarPerfil from "../components/HeaderPerfil";
+import { useEffect } from "react";
 
-export default function HomePerfil() {
+export default function Perfil() {
+
+    async function Requisicao() {
+        try {
+            const destravar = await fetch("http://localhost:3001/protected", {
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,  // importante: mandar o token!
+                },
+            });
+            if (destravar.status === 401) {
+                console.warn("Não autorizado, redirecionando para login");
+                 window.location.href = '/login'
+                return;
+              }
+
+
+            const data = await destravar.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Erro ao fazer requisição:", error);
+        }
+    }
+
+    useEffect(() => {
+        Requisicao();
+    }, []);
+
+
     return (
         <>
             <NavBarPerfil />
@@ -16,9 +45,9 @@ export default function HomePerfil() {
 
 const Container = styled.div`
     display: flex;
-    flex-wrap: wrap; /* permite quebrar linha se faltar espaço */
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* permite quebrar linha se faltar espaço */
     gap: 1rem; /* espaço entre os cards */
     padding: 1rem;
 
