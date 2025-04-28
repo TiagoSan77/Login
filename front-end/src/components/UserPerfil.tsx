@@ -30,7 +30,12 @@ export default function UserComponent() {
   return (
     <Container>
       <Card>
-        <Title>Informações do Usuário</Title>
+        <ProfileIcon>
+          <FaUser size={80} />
+        </ProfileIcon>
+
+        <Title>Perfil do Usuário</Title>
+
         <UserInfo>
           <FaUser />
           <span>Nome: {nome || "Não disponível"}</span>
@@ -87,11 +92,18 @@ const Card = styled.div`
   }
 `;
 
+const ProfileIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00c6ff;
+  margin-bottom: 1rem;
+`;
+
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #8be580;
   font-weight: bold;
-  margin-bottom: 1rem;
 `;
 
 const UserInfo = styled.div`
