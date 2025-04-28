@@ -1,62 +1,105 @@
+import { FaEnvelope, FaShoppingCart, FaSignInAlt, FaTags, FaUserPlus } from 'react-icons/fa';
 import styled from 'styled-components';
 
 export default function NavBar() {
   return (
     <NavbarContainer>
-      <Logo>StreamPlus</Logo>
-      <NavLinks>
-        <li>Planos</li>
-        <li>Contato</li>
-        <li>Comprar</li>
-        <li>
-          <a href="/login" style={{ color: 'white', textDecoration: 'none' }}>Login</a>
-        </li>
-        <li>
-          <a href='/register' style={{ color: 'white', textDecoration: 'none' }}>
-            Cadastre-se
-          </a>
-        </li>
-      </NavLinks>
-    </NavbarContainer>
-  );
-};
+    <Logo href="/">Stream<span>Plus</span></Logo>
+
+    <NavLinks>
+      <NavItem href="#">
+        <FaTags /> Planos
+      </NavItem>
+
+      <NavItem href="#">
+        <FaEnvelope /> Contato
+      </NavItem>
+
+      <NavItem href="/comprar">
+        <FaShoppingCart /> Comprar
+      </NavItem>
+
+      <NavItem href="/login">
+        <FaSignInAlt /> Login
+      </NavItem>
+
+      <RegisterButton href="/register">
+        <FaUserPlus /> Cadastre-se
+      </RegisterButton>
+    </NavLinks>
+  </NavbarContainer>
+);
+}
+
+// Styled-components
 
 const NavbarContainer = styled.nav`
-  background: linear-gradient(90deg, #141e30, #243b55);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+background: #0f172a;
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+flex-wrap: wrap;
+position: sticky;
+top: 0;
+z-index: 100;
 `;
 
-const Logo = styled.div`
-  font-size: 1.8rem;
-  font-weight: bold;
-  cursor: pointer;
+const Logo = styled.a`
+font-size: 2rem;
+font-weight: bold;
+color: #00c6ff;
+text-decoration: none;
+
+span {
+  color: #ffffff;
+}
 `;
 
-const NavLinks = styled.ul`
-  display: flex;
-  list-style: none;
-  gap: 2rem;
+const NavLinks = styled.div`
+display: flex;
+gap: 2rem;
+align-items: center;
 
-  li {
-    cursor: pointer;
-    transition: color 0.3s ease;
+@media (max-width: 768px) {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+`;
 
-    &:hover {
-      color: #00c6ff;
-    }
-  }
+const NavItem = styled.a`
+color: white;
+text-decoration: none;
+font-size: 1.1rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+transition: color 0.3s;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    justify-content: center;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+&:hover {
+  color: #00c6ff;
+}
+`;
+
+const RegisterButton = styled.a`
+background-color: #00c6ff;
+color: #0f172a;
+font-weight: bold;
+text-decoration: none;
+padding: 0.5rem 1rem;
+border-radius: 25px;
+font-size: 1.1rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+transition: background 0.3s, color 0.3s;
+
+&:hover {
+  background-color: #00a3cc;
+  color: white;
+}
 `;

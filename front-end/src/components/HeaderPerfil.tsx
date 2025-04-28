@@ -1,55 +1,95 @@
+// src/components/NavBarPerfil.tsx
 import styled from 'styled-components';
+import { FaShoppingCart, FaHome, FaUserCircle, FaSignOutAlt, FaTags } from 'react-icons/fa';
 
 export default function NavBarPerfil() {
   return (
-    <NavbarContainer>
-      <Logo>StreamPlus</Logo>
-      <NavLinks>
-        <li>
-          <a href="/perfil" style={{ color: 'white', textDecoration: 'none' }}>Início</a>
-        </li>
-        <li>Planos</li>
-        <li>Contato</li>
-        <li>Comprar</li>
-        <li>
-          <a href="/perfil/user" style={{ color: 'white', textDecoration: 'none' }}>User</a>
-        </li>
-        <li>
-          <a href="/" style={{ color: 'white', textDecoration: 'none' }}>Sair</a>
-        </li>
 
+    <NavbarContainer>
+      <Logo href="/">Stream<span>Plus</span></Logo>
+
+      <NavLinks>
+        <NavItem href="/perfil">
+          <FaHome /> Início
+        </NavItem>
+
+        <NavItem href="#">
+          <FaTags /> Planos
+        </NavItem>
+
+        <NavItem href="/comprar">
+          <FaShoppingCart /> Comprar
+        </NavItem>
+
+        <NavItem href="/perfil/user">
+          <FaUserCircle /> Perfil
+        </NavItem>
       </NavLinks>
+
+      <LogoutButton href="/">
+        <FaSignOutAlt /> Sair
+      </LogoutButton>
     </NavbarContainer>
   );
-};
+}
 
 const NavbarContainer = styled.nav`
-  background: linear-gradient(90deg, #141e30, #243b55);
+  background: #0f172a;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `;
 
-const Logo = styled.div`
-  font-size: 1.8rem;
+const Logo = styled.a`
+  font-size: 2rem;
   font-weight: bold;
-  cursor: pointer;
+  color: #00c6ff;
+  text-decoration: none;
+
+  span {
+    color: #ffffff;
+  }
 `;
 
-const NavLinks = styled.ul`
+const NavLinks = styled.div`
   display: flex;
-  list-style: none;
   gap: 2rem;
 
-  li {
-    cursor: pointer;
-    transition: color 0.3s ease;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 
-    &:hover {
-      color: #00c6ff;
-    }
+const NavItem = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #00c6ff;
+  }
+`;
+
+const LogoutButton = styled.a`
+  color: #ff6b6b;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+  font-weight: bold;
+
+  &:hover {
+    color: #ff4d4d;
   }
 `;

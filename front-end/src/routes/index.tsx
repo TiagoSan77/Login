@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UserPerfil from "../pages/UserPerfil";
 import Perfil from "../pages/HomePerfil";
+import HomeComprar from "../pages/HomeComprar";
 
 export default function AppRoutes() {
     return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/perfil/user" element={<UserPerfil />} />
+                <Route path="/comprar" element={<HomeComprar />} />
             </Routes>
         </>
     )

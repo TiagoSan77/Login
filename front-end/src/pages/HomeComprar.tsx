@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Cards from "../components/CardsCliente";
 import NavBarPerfil from "../components/HeaderPerfil";
 import { useEffect } from "react";
+import Cards from "../components/Cards";
 
 export default function Perfil() {
 
@@ -36,8 +36,8 @@ export default function Perfil() {
         <>
             <NavBarPerfil />
             <Container>
-                <Cards />
-                <Cards />
+                <Cards/>
+                <Cards/>
             </Container>
         </>
     )
@@ -45,8 +45,11 @@ export default function Perfil() {
 
 const Container = styled.div`
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-wrap: wrap; /* permite quebrar linha se faltar espaço */
     gap: 1rem; /* espaço entre os cards */
+    padding: 1rem;
 
     @media (max-width: 768px) {
         flex-direction: column; /* empilha um embaixo do outro no mobile */

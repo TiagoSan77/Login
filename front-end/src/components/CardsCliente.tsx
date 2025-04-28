@@ -1,4 +1,6 @@
+// src/pages/Planos.tsx
 import styled from 'styled-components';
+import { FaRegCreditCard, FaCalendarAlt, FaCheckCircle } from 'react-icons/fa';
 
 export default function Planos() {
   return (
@@ -9,9 +11,15 @@ export default function Planos() {
         <PlanName>Unitv</PlanName>
 
         <PlanDetails>
-          <Detail>Plano: Básico - Mensal</Detail>
-          <Detail>Vencimento: 10/02</Detail>
-          <Status>Ativo</Status>
+          <Detail>
+            <FaRegCreditCard /> Básico - Mensal
+          </Detail>
+          <Detail>
+            <FaCalendarAlt /> Vencimento: 10/02
+          </Detail>
+          <Status>
+            <FaCheckCircle /> Ativo
+          </Status>
         </PlanDetails>
 
         <SubscribeButton>Renovar Assinatura</SubscribeButton>
@@ -23,73 +31,81 @@ export default function Planos() {
 // Styled-components
 
 const Container = styled.div`
-  min-height: 100vh;
-  /* background: linear-gradient(135deg, #141e30, #243b55); */
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 2rem;
+  padding: 3rem 1rem;
 `;
 
 const Card = styled.div`
-  background: #1f2833;
-  border-radius: 16px;
-  padding: 2rem;
-  width: 320px;
+  background: #0f172a;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 400px;
   text-align: center;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  transition: all 0.3s ease-in-out;
+  gap: 2rem;
+  transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
   }
 `;
-
 
 const Title = styled.h1`
   font-size: 2rem;
   color: #00c6ff;
-  margin-bottom: 1rem;
 `;
 
 const PlanName = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #ffffff;
-  margin-bottom: 0.5rem;
 `;
 
 const PlanDetails = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 0 auto;
+  width: fit-content;
+
+  svg {
+    color: #00c6ff;
+    margin-right: 8px;
+  }
 `;
 
 const Detail = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #cfd8dc;
+  display: flex;
+  align-items: center;
 `;
 
 const Status = styled.p`
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #00e676;
+  display: flex;
+  align-items: center;
 `;
 
 const SubscribeButton = styled.button`
-  background: #00c6ff;
+  background: linear-gradient(90deg, #00c6ff, #007acc);
   color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.4s;
 
   &:hover {
-    background: #007acc;
+    background: linear-gradient(90deg, #007acc, #005f99);
   }
 `;
