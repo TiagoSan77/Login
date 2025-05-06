@@ -22,7 +22,7 @@ export default function Cards() {
         <QuantityButton onClick={increaseQuantity}>+</QuantityButton>
       </QuantitySelector>
 
-      <SubscribeButton>Comprar {quantity} crédito{quantity > 1 ? 's' : ''}</SubscribeButton>
+      <SubscribeButton ><Comprar href='/finalizar'>Comprar {quantity} crédito{quantity > 1 ? 's' : ''}</Comprar></SubscribeButton>
     </Card>
   );
 }
@@ -107,4 +107,10 @@ const SubscribeButton = styled.button`
   &:hover {
     background: #007acc;
   }
+`;
+
+const Comprar = styled.a`
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
 `;
