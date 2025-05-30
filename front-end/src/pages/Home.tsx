@@ -8,13 +8,17 @@ export default function Home() {
       <NavBar />
       <MainContainer>
         <HeroSection>
-          <HeroTitle>Bem-vindo à StreamPlus</HeroTitle>
-          <HeroSubtitle>O melhor conteúdo de streaming em um só lugar</HeroSubtitle>
+          <HeroTitle>Bem-vindo à ControllCli</HeroTitle>
+          <HeroSubtitle>
+            Software inteligente para gerenciamento de clientes e envio automático de mensagens.
+          </HeroSubtitle>
           <ButtonContainer>
-            <PrimaryButton >
+            <PrimaryButton>
               Ver Planos
             </PrimaryButton>
-            <SecondaryButton>Saiba Mais</SecondaryButton>
+            <SecondaryButton>
+              Saiba Mais
+            </SecondaryButton>
           </ButtonContainer>
         </HeroSection>
       </MainContainer>

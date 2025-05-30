@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function NavBar() {
   return (
     <NavbarContainer>
-    <Logo href="/">Stream<span>Plus</span></Logo>
+    <Logo href="/">Controll<span>Cli</span></Logo>
 
     <NavLinks>
       <NavItem href="#">
@@ -15,7 +15,7 @@ export default function NavBar() {
         <FaEnvelope /> Contato
       </NavItem>
 
-      <NavItem href="/comprar">
+      <NavItem href="#">
         <FaShoppingCart /> Comprar
       </NavItem>
 

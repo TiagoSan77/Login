@@ -1,24 +1,27 @@
 // src/components/NavBarPerfil.tsx
 import styled from 'styled-components';
-import { FaShoppingCart, FaHome, FaUserCircle, FaSignOutAlt, FaTags } from 'react-icons/fa';
+import { FaUserPlus, FaUsers, FaHome, FaUserCircle, FaSignOutAlt, FaChartBar } from 'react-icons/fa';
 
 export default function NavBarPerfil() {
   return (
-
     <NavbarContainer>
-      <Logo href="/">Stream<span>Plus</span></Logo>
+      <Logo href="/">Controll<span>Cli</span></Logo>
 
       <NavLinks>
-        <NavItem href="/perfil">
+        <NavItem href="/inicio">
           <FaHome /> Início
         </NavItem>
 
-        <NavItem href="#">
-          <FaTags /> Planos
+        <NavItem href="/clientes/cadastrar">
+          <FaUserPlus /> Cadastrar Cliente
         </NavItem>
 
-        <NavItem href="/comprar">
-          <FaShoppingCart /> Comprar
+        <NavItem href="/clientes">
+          <FaUsers /> Clientes
+        </NavItem>
+
+        <NavItem href="/clientes/estatisticas">
+          <FaChartBar /> Estatísticas
         </NavItem>
 
         <NavItem href="/perfil/user">
@@ -32,6 +35,7 @@ export default function NavBarPerfil() {
     </NavbarContainer>
   );
 }
+
 
 const NavbarContainer = styled.nav`
   background: #0f172a;

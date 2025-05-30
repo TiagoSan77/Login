@@ -15,7 +15,6 @@ export default function FormLogin() {
 
   async function Logar() {
     try {
-      // Basic client-side validation
       if (!email || !password) {
         alert("Por favor, preencha todos os campos!");
         return;
@@ -38,7 +37,7 @@ export default function FormLogin() {
         localStorage.setItem('token', token);
         
         alert("Login realizado com sucesso!");
-        window.location.href = '/perfil';
+        window.location.href = '/inicio';
       }
   
     } catch (error) {
